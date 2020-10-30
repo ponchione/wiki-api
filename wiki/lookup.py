@@ -2,9 +2,9 @@ import wikipedia
 
 
 def find_page(name):
-    search_term = suggest(name) if suggest(name) is not None else name
+    suggestion = suggest(name)
+    search_term = suggestion if suggestion is not None else name
     results = page(search_term)
-    # print(results.summary)
     return results.summary
 
 
