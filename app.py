@@ -1,5 +1,6 @@
 from flask import Flask
 from flask import request
+from wiki.lookup import find_page
 
 app = Flask(__name__)
 
@@ -15,7 +16,7 @@ def receive_site():
         data = request.get_json()
         url = data["site"]
         print(url)
-        return url
+        return find_page(url)
     else:
         print("Not a POST request")
 
